@@ -1,0 +1,636 @@
+Analysis & Synthesis report for snake
+Sat Dec 17 14:19:36 2016
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "collision:col|snake_body:snake|Controller:cont"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Dec 17 14:19:36 2016       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; snake                                       ;
+; Top-level Entity Name              ; snake                                       ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 2,690                                       ;
+;     Total combinational functions  ; 2,667                                       ;
+;     Dedicated logic registers      ; 633                                         ;
+; Total registers                    ; 633                                         ;
+; Total pins                         ; 49                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; snake              ; snake              ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                                  ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; snake.v                          ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v                   ;         ;
+; apple.v                          ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v                   ;         ;
+; random_apple.v                   ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/random_apple.v            ;         ;
+; VGA_Controller.v                 ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/VGA_Controller.v          ;         ;
+; Controller.v                     ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v              ;         ;
+; Clks_Generator.v                 ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Clks_Generator.v          ;         ;
+; output_files/snake_body.v        ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v ;         ;
+; output_files/collision.v         ; yes             ; User Verilog HDL File  ; E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v  ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 2,690       ;
+;                                             ;             ;
+; Total combinational functions               ; 2667        ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 186         ;
+;     -- 3 input functions                    ; 1162        ;
+;     -- <=2 input functions                  ; 1319        ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 1057        ;
+;     -- arithmetic mode                      ; 1610        ;
+;                                             ;             ;
+; Total registers                             ; 633         ;
+;     -- Dedicated logic registers            ; 633         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 49          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; start~input ;
+; Maximum fan-out                             ; 565         ;
+; Total fan-out                               ; 8645        ;
+; Average fan-out                             ; 2.54        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name    ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+----------------+--------------+
+; |snake                        ; 2667 (14)           ; 633 (25)                  ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |snake                                                ; snake          ; work         ;
+;    |Clks_Generator:CLKs|      ; 39 (39)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|Clks_Generator:CLKs                            ; Clks_Generator ; work         ;
+;    |VGA_Controller:VGA|       ; 44 (44)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|VGA_Controller:VGA                             ; VGA_Controller ; work         ;
+;    |collision:col|            ; 2570 (31)           ; 560 (11)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|collision:col                                  ; collision      ; work         ;
+;       |Apple:app|             ; 116 (75)            ; 20 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|collision:col|Apple:app                        ; Apple          ; work         ;
+;          |random_apple:salem| ; 41 (41)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|collision:col|Apple:app|random_apple:salem     ; random_apple   ; work         ;
+;       |snake_body:snake|      ; 2423 (2412)         ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|collision:col|snake_body:snake                 ; snake_body     ; work         ;
+;          |Controller:cont|    ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |snake|collision:col|snake_body:snake|Controller:cont ; Controller     ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                      ;
++-------------------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                                  ; Latch Enable Signal               ; Free of Timing Hazards ;
++-------------------------------------------------------------+-----------------------------------+------------------------+
+; collision:col|Apple:app|appleY[8]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[7]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[6]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[5]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[4]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[3]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[2]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleY[1]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[9]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[8]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[7]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[6]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[5]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[4]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[3]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[2]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|Apple:app|appleX[1]                           ; collision:col|Apple:app|appleY[1] ; yes                    ;
+; collision:col|snake_body:snake|Controller:cont|direction[2] ; GND                               ; yes                    ;
+; collision:col|snake_body:snake|Controller:cont|direction[0] ; GND                               ; yes                    ;
+; collision:col|snake_body:snake|Controller:cont|direction[1] ; GND                               ; yes                    ;
+; Number of user-specified and inferred latches = 20          ;                                   ;                        ;
++-------------------------------------------------------------+-----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++------------------------------------------------------+----------------------------------------------------------+
+; Register name                                        ; Reason for Removal                                       ;
++------------------------------------------------------+----------------------------------------------------------+
+; collision:col|Apple:app|random_apple:salem|rand_Y[0] ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|Apple:app|random_apple:salem|rand_X[0] ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeY[0][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[0][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeY[4][0]          ; Merged with collision:col|snake_body:snake|snakeX[4][0]  ;
+; collision:col|snake_body:snake|snakeY[3][0]          ; Merged with collision:col|snake_body:snake|snakeX[3][0]  ;
+; collision:col|snake_body:snake|snakeY[2][0]          ; Merged with collision:col|snake_body:snake|snakeX[2][0]  ;
+; collision:col|snake_body:snake|snakeY[1][0]          ; Merged with collision:col|snake_body:snake|snakeX[1][0]  ;
+; collision:col|snake_body:snake|snakeY[5][0]          ; Merged with collision:col|snake_body:snake|snakeX[5][0]  ;
+; collision:col|snake_body:snake|snakeY[6][0]          ; Merged with collision:col|snake_body:snake|snakeX[6][0]  ;
+; collision:col|snake_body:snake|snakeY[7][0]          ; Merged with collision:col|snake_body:snake|snakeX[7][0]  ;
+; collision:col|snake_body:snake|snakeY[8][0]          ; Merged with collision:col|snake_body:snake|snakeX[8][0]  ;
+; collision:col|snake_body:snake|snakeY[9][0]          ; Merged with collision:col|snake_body:snake|snakeX[9][0]  ;
+; collision:col|snake_body:snake|snakeY[10][0]         ; Merged with collision:col|snake_body:snake|snakeX[10][0] ;
+; collision:col|snake_body:snake|snakeY[11][0]         ; Merged with collision:col|snake_body:snake|snakeX[11][0] ;
+; collision:col|snake_body:snake|snakeY[12][0]         ; Merged with collision:col|snake_body:snake|snakeX[12][0] ;
+; collision:col|snake_body:snake|snakeY[13][0]         ; Merged with collision:col|snake_body:snake|snakeX[13][0] ;
+; collision:col|snake_body:snake|snakeY[14][0]         ; Merged with collision:col|snake_body:snake|snakeX[14][0] ;
+; collision:col|snake_body:snake|snakeY[15][0]         ; Merged with collision:col|snake_body:snake|snakeX[15][0] ;
+; collision:col|snake_body:snake|snakeY[16][0]         ; Merged with collision:col|snake_body:snake|snakeX[16][0] ;
+; collision:col|snake_body:snake|snakeY[17][0]         ; Merged with collision:col|snake_body:snake|snakeX[17][0] ;
+; collision:col|snake_body:snake|snakeY[18][0]         ; Merged with collision:col|snake_body:snake|snakeX[18][0] ;
+; collision:col|snake_body:snake|snakeY[19][0]         ; Merged with collision:col|snake_body:snake|snakeX[19][0] ;
+; collision:col|snake_body:snake|snakeY[20][0]         ; Merged with collision:col|snake_body:snake|snakeX[20][0] ;
+; collision:col|snake_body:snake|snakeY[21][0]         ; Merged with collision:col|snake_body:snake|snakeX[21][0] ;
+; collision:col|snake_body:snake|snakeY[22][0]         ; Merged with collision:col|snake_body:snake|snakeX[22][0] ;
+; collision:col|snake_body:snake|snakeY[23][0]         ; Merged with collision:col|snake_body:snake|snakeX[23][0] ;
+; collision:col|snake_body:snake|snakeY[24][0]         ; Merged with collision:col|snake_body:snake|snakeX[24][0] ;
+; collision:col|snake_body:snake|snakeY[25][0]         ; Merged with collision:col|snake_body:snake|snakeX[25][0] ;
+; collision:col|snake_body:snake|snakeY[26][0]         ; Merged with collision:col|snake_body:snake|snakeX[26][0] ;
+; collision:col|snake_body:snake|snakeY[27][0]         ; Merged with collision:col|snake_body:snake|snakeX[27][0] ;
+; collision:col|snake_body:snake|snakeY[28][0]         ; Merged with collision:col|snake_body:snake|snakeX[28][0] ;
+; collision:col|snake_body:snake|snakeY[29][0]         ; Merged with collision:col|snake_body:snake|snakeX[29][0] ;
+; collision:col|snake_body:snake|snakeY[30][0]         ; Merged with collision:col|snake_body:snake|snakeX[30][0] ;
+; collision:col|snake_body:snake|snakeY[31][0]         ; Merged with collision:col|snake_body:snake|snakeX[31][0] ;
+; collision:col|snake_body:snake|snakeX[1][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[2][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[3][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[4][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[5][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[6][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[7][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[8][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[9][0]          ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[10][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[11][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[12][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[13][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[14][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[15][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[16][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[17][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[18][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[19][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[20][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[21][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[22][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[23][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[24][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[25][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[26][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[27][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[28][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[29][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[30][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[31][0]         ; Stuck at GND due to stuck port data_in                   ;
+; collision:col|snake_body:snake|snakeX[31][9]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][8]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][7]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][6]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][5]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][4]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][3]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][2]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeX[31][1]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][8]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][7]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][6]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][5]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][4]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][3]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][2]         ; Lost fanout                                              ;
+; collision:col|snake_body:snake|snakeY[31][1]         ; Lost fanout                                              ;
+; Total Number of Removed Registers = 83               ;                                                          ;
++------------------------------------------------------+----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                             ;
++---------------------------------------------+---------------------------+-----------------------------------------------+
+; Register name                               ; Reason for Removal        ; Registers Removed due to This Register        ;
++---------------------------------------------+---------------------------+-----------------------------------------------+
+; collision:col|snake_body:snake|snakeX[0][0] ; Stuck at GND              ; collision:col|snake_body:snake|snakeX[1][0],  ;
+;                                             ; due to stuck port data_in ; collision:col|snake_body:snake|snakeX[2][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[3][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[4][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[5][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[6][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[7][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[8][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[9][0],  ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[10][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[11][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[12][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[13][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[14][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[15][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[16][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[17][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[18][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[19][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[20][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[21][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[22][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[23][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[24][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[25][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[26][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[27][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[28][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[29][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[30][0], ;
+;                                             ;                           ; collision:col|snake_body:snake|snakeX[31][0]  ;
++---------------------------------------------+---------------------------+-----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 633   ;
+; Number of registers using Synchronous Clear  ; 9     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 541   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------+
+; Inverted Register Statistics                                   ;
++------------------------------------------------------+---------+
+; Inverted Register                                    ; Fan out ;
++------------------------------------------------------+---------+
+; collision:col|size[0]                                ; 39      ;
+; collision:col|azab                                   ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_Y[6] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_Y[4] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_Y[3] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_Y[1] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_X[6] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_X[2] ; 2       ;
+; collision:col|Apple:app|random_apple:salem|rand_X[1] ; 2       ;
+; Total number of inverted registers = 9               ;         ;
++------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |snake|collision:col|size[1]                                       ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[30][7]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[29][2]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[28][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[27][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[26][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[25][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[24][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[23][9]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[22][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[21][9]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[20][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[19][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[18][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[17][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[16][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[15][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[14][9]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[13][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[12][9]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[11][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[10][3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[9][9]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[8][3]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[7][3]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[6][3]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[5][3]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[4][9]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[3][3]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[2][9]                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[1][3]                 ;
+; 9:1                ; 9 bits    ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeX[0][7]                 ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |snake|collision:col|snake_body:snake|snakeY[0][1]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |snake|collision:col|seg2[4]                                       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |snake|collision:col|snake_body:snake|Controller:cont|direction[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "collision:col|snake_body:snake|Controller:cont"                                      ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; reset ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 49                          ;
+; cycloneiii_ff         ; 633                         ;
+;     ENA               ; 524                         ;
+;     ENA SCLR          ; 9                           ;
+;     ENA SLD           ; 8                           ;
+;     plain             ; 92                          ;
+; cycloneiii_lcell_comb ; 2674                        ;
+;     arith             ; 1610                        ;
+;         2 data inputs ; 556                         ;
+;         3 data inputs ; 1054                        ;
+;     normal            ; 1064                        ;
+;         0 data inputs ; 65                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 690                         ;
+;         3 data inputs ; 108                         ;
+;         4 data inputs ; 186                         ;
+;                       ;                             ;
+; Max LUT depth         ; 19.70                       ;
+; Average LUT depth     ; 10.15                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:17     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Sat Dec 17 14:18:56 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off snake -c snake
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file snake.v
+    Info (12023): Found entity 1: snake File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file apple.v
+    Info (12023): Found entity 1: Apple File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file random_apple.v
+    Info (12023): Found entity 1: random_apple File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/random_apple.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
+    Info (12023): Found entity 1: VGA_Controller File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/VGA_Controller.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file controller.v
+    Info (12023): Found entity 1: Controller File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clks_generator.v
+    Info (12023): Found entity 1: Clks_Generator File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Clks_Generator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/snake_body.v
+    Info (12023): Found entity 1: snake_body File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/collision.v
+    Info (12023): Found entity 1: collision File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 1
+Warning (12019): Can't analyze file -- file output_files/seven_segment_decoder.v is missing
+Warning (12019): Can't analyze file -- file output_files/view_score.v is missing
+Warning (10227): Verilog HDL Port Declaration warning at collision.v(8): data type declaration for "xCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 8
+Info (10499): HDL info at collision.v(2): see declaration for object "xCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 2
+Warning (10227): Verilog HDL Port Declaration warning at collision.v(9): data type declaration for "yCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 9
+Info (10499): HDL info at collision.v(2): see declaration for object "yCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 2
+Warning (10227): Verilog HDL Port Declaration warning at snake_body.v(13): data type declaration for "xCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 13
+Info (10499): HDL info at snake_body.v(2): see declaration for object "xCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 2
+Warning (10227): Verilog HDL Port Declaration warning at snake_body.v(14): data type declaration for "yCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 14
+Info (10499): HDL info at snake_body.v(2): see declaration for object "yCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 2
+Warning (10227): Verilog HDL Port Declaration warning at snake_body.v(3): data type declaration for "size" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 3
+Info (10499): HDL info at snake_body.v(2): see declaration for object "size" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 2
+Warning (10227): Verilog HDL Port Declaration warning at apple.v(11): data type declaration for "xCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 11
+Info (10499): HDL info at apple.v(3): see declaration for object "xCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 3
+Warning (10227): Verilog HDL Port Declaration warning at apple.v(12): data type declaration for "yCount" declares packed dimensions but the port declaration declaration does not File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 12
+Info (10499): HDL info at apple.v(3): see declaration for object "yCount" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 3
+Info (12127): Elaborating entity "snake" for the top level hierarchy
+Info (12128): Elaborating entity "collision" for hierarchy "collision:col" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v Line: 24
+Warning (10230): Verilog HDL assignment warning at collision.v(25): truncated value with size 32 to match size of target (5) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 25
+Warning (10230): Verilog HDL assignment warning at collision.v(60): truncated value with size 32 to match size of target (5) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 60
+Info (12128): Elaborating entity "snake_body" for hierarchy "collision:col|snake_body:snake" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 16
+Warning (10230): Verilog HDL assignment warning at snake_body.v(32): truncated value with size 32 to match size of target (9) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 32
+Warning (10230): Verilog HDL assignment warning at snake_body.v(33): truncated value with size 32 to match size of target (10) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 33
+Warning (10230): Verilog HDL assignment warning at snake_body.v(34): truncated value with size 32 to match size of target (9) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 34
+Warning (10230): Verilog HDL assignment warning at snake_body.v(35): truncated value with size 32 to match size of target (10) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 35
+Info (12128): Elaborating entity "Controller" for hierarchy "collision:col|snake_body:snake|Controller:cont" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake_body.v Line: 16
+Warning (10235): Verilog HDL Always Construct warning at Controller.v(28): variable "direction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 28
+Warning (10240): Verilog HDL Always Construct warning at Controller.v(7): inferring latch(es) for variable "direction", which holds its previous value in one or more paths through the always construct File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 7
+Info (10041): Inferred latch for "direction[0]" at Controller.v(16) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 16
+Info (10041): Inferred latch for "direction[1]" at Controller.v(16) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 16
+Info (10041): Inferred latch for "direction[2]" at Controller.v(16) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Controller.v Line: 16
+Info (12128): Elaborating entity "Apple" for hierarchy "collision:col|Apple:app" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/collision.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at apple.v(16): variable "good_collision" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 16
+Warning (10235): Verilog HDL Always Construct warning at apple.v(18): variable "rand_X" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at apple.v(19): variable "rand_Y" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 19
+Warning (10235): Verilog HDL Always Construct warning at apple.v(21): variable "start" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Warning (10235): Verilog HDL Always Construct warning at apple.v(23): variable "rand_X" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at apple.v(24): variable "rand_Y" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 24
+Warning (10240): Verilog HDL Always Construct warning at apple.v(14): inferring latch(es) for variable "appleX", which holds its previous value in one or more paths through the always construct File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at apple.v(14): inferring latch(es) for variable "appleY", which holds its previous value in one or more paths through the always construct File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 14
+Info (10041): Inferred latch for "appleY[0]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[1]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[2]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[3]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[4]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[5]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[6]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[7]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleY[8]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[0]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[1]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[2]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[3]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[4]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[5]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[6]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[7]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[8]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (10041): Inferred latch for "appleX[9]" at apple.v(21) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 21
+Info (12128): Elaborating entity "random_apple" for hierarchy "collision:col|Apple:app|random_apple:salem" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/apple.v Line: 13
+Warning (10230): Verilog HDL assignment warning at random_apple.v(9): truncated value with size 32 to match size of target (10) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/random_apple.v Line: 9
+Warning (10230): Verilog HDL assignment warning at random_apple.v(18): truncated value with size 32 to match size of target (9) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/random_apple.v Line: 18
+Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:VGA" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v Line: 25
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(26): truncated value with size 32 to match size of target (10) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/VGA_Controller.v Line: 26
+Warning (10230): Verilog HDL assignment warning at VGA_Controller.v(37): truncated value with size 32 to match size of target (10) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/VGA_Controller.v Line: 37
+Info (12128): Elaborating entity "Clks_Generator" for hierarchy "Clks_Generator:CLKs" File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v Line: 26
+Warning (10230): Verilog HDL assignment warning at Clks_Generator.v(9): truncated value with size 32 to match size of target (22) File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/Clks_Generator.v Line: 9
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg2[1]" is stuck at GND File: E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/snake.v Line: 20
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2742 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 2693 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 636 megabytes
+    Info: Processing ended: Sat Dec 17 14:19:36 2016
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:00:59
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/Faculty of engineering/Semesters/5th Semester/Digital system design/Project/project/snake-20161210T190647Z/snake/output_files/snake.map.smsg.
+
+

@@ -1,0 +1,21 @@
+module collision(good_collision,bad_collision,snakeBody,snakeHead,border,VGA_clk);
+	input good_collision,bad_collision,border,VGA_clk;
+	output wire snakeBody,snakeHead;
+	
+	wire lethal, nonLethal;
+	assign lethal = (border|| snakeBody)&& snakeHead;
+	assign nonLethal = apple && snakeHead;
+	always @(posedge VGA_clk) if(nonLethal) begin good_collision<=1;
+																					size = size+1;
+																					end
+										else if(~start) size = 1;										
+										else good_collision=0;
+	always @(posedge VGA_clk) if(lethal) bad_collision=1;
+										else bad_collision=0;
+	always @(posedge VGA_clk) if(bad_collision) game_over<=1;
+										else if(~start) game_over=0;
+										
+	
+									
+
+endmodule

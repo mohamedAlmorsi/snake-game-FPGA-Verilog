@@ -1,0 +1,22 @@
+module random_apple(VGA_clk, rand_X, rand_Y);
+	input VGA_clk;
+	output reg [9:0]rand_X= 70;
+	output reg [8:0]rand_Y=90;
+	
+	always@(posedge VGA_clk)
+	begin
+	rand_X= rand_X +30;
+	rand_Y=rand_Y+20 ;
+	if(rand_X >= 610)
+		begin
+		rand_X = 40 ;
+		end
+	if(rand_Y >= 450)
+		begin
+		rand_Y = 40 ;
+		end
+	end
+
+	
+	
+endmodule
